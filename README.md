@@ -2,7 +2,7 @@
 
 This repository contains the source code for the fourteen examples included in the book *Web Scraping for Data Science with Python* by Seppe vanden Broucke and Bart Baesens.
 
-See [http://www.webscrapingfordatascience.com/](http://www.webscrapingfordatascience.com/) for more information, or buy the book on [Amazon](https://www.amazon.com/dp/1979343780/)
+See [http://www.webscrapingfordatascience.com/](http://www.webscrapingfordatascience.com/) for more information, or buy the book on [Amazon](https://www.amazon.com/dp/1979343780/).
 
 The following examples are included and explained in the book and available here under [`python-examples`](https://github.com/Macuyiko/webscrapingfordatascience/tree/master/python-examples):
 
