@@ -1,8 +1,8 @@
-# Web Scraping for Data Science with Python
+# Practical Web Scraping for Data Science
 
-This repository contains the source code for the fourteen examples included in the book *Web Scraping for Data Science with Python* by Seppe vanden Broucke and Bart Baesens.
+This repository contains the source code for the fourteen examples included in the book *Practical Web Scraping for Data Science: Best Practices and Examples with Python* by Seppe vanden Broucke and Bart Baesens.
 
-See [http://www.webscrapingfordatascience.com/](http://www.webscrapingfordatascience.com/) for more information, or buy the book on [Amazon](https://www.amazon.com/dp/1979343780/).
+See [http://www.webscrapingfordatascience.com/](http://www.webscrapingfordatascience.com/) for more information, or buy the book on [Amazon](https://www.amazon.com/Practical-Web-Scraping-Data-Science/dp/1484235819/).
 
 The following examples are included and explained in the book and available here under [`python-examples`](https://github.com/Macuyiko/webscrapingfordatascience/tree/master/python-examples):
 
@@ -20,3 +20,4 @@ The following examples are included and explained in the book and available here
 12. Scraping and Analyzing News Articles, see `news-articles` folder
 13. Scraping and Analyzing a Wikipedia Graph, see `wikipedia-graph` folder
 14. Scraping and Visualizing a Board Members Graph, see `board-members` folder
+15. Breaking CAPTCHA’s Using Deep Learning, see `captcha-cracking` folder
