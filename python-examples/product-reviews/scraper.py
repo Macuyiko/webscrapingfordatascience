@@ -6,15 +6,16 @@ import dataset
 
 db = dataset.connect('sqlite:///reviews.db')
 
-review_url = 'https://www.amazon.com/ss/customer-reviews/ajax/reviews/get/'
+review_url = 'https://www.amazon.com/hz/reviews-render/ajax/reviews/get/'
 product_id = '1449355730'
+start_url = 'https://www.amazon.com/product-reviews/{}/'.format(product_id)
 
 session = requests.Session()
 session.headers.update({
     'User-Agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.62 Safari/537.36'
     })
 
-session.get('https://www.amazon.com/product-reviews/{}/'.format(product_id))
+session.get(start_url)
 
 def parse_reviews(reply):
     reviews = []
@@ -30,7 +31,7 @@ def parse_reviews(reply):
             continue
         review_id = div.get('id')
         review_classes = ' '.join(html_soup.find(class_='review-rating').get('class'))
-        rating = re.search('a-star-(\d+)', review_classes).group(1)
+        rating = re.search(r'a-star-(\d+)', review_classes).group(1)
         title = html_soup.find(class_='review-title').get_text(strip=True)
         review = html_soup.find(class_='review-text').get_text(strip=True)
         reviews.append({'review_id': review_id,
@@ -53,7 +54,7 @@ def get_reviews(product_id, page):
         'reftag':'cm_cr_getr_d_paging_btm_{}'.format(page),
         'pageSize':10,
         'asin':product_id,
-        'scope':'reviewsAjax1'
+        'scope':'reviewsAjax0'
         }
     r = session.post(review_url + 'ref=' + data['reftag'], data=data)
     reviews = parse_reviews(r.text)
