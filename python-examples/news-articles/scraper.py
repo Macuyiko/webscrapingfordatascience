@@ -5,7 +5,11 @@ from json import loads
 
 db = dataset.connect('sqlite:///news.db')
 
-base_url = 'https://news.google.com/news/?ned=us&hl=en'
+base_url = 'https://news.google.com/news/'
+
+# You can also use a query to start from like:
+# https://news.google.com/search?q=paribas&hl=en-US&gl=US&ceid=US%3Aen
+start_url = base_url + '?ned=us&hl=en'
 script_url = 'http://www.webscrapingfordatascience.com/readability/Readability.js'
 
 get_article_cmd = requests.get(script_url).text
@@ -28,12 +32,13 @@ return JSON.stringify(article);
 driver = webdriver.Chrome()
 driver.implicitly_wait(10) 
 
-driver.get(base_url)
+driver.get(start_url)
 
 news_urls = []
-for link in driver.find_elements_by_css_selector('main a[role="heading"]'):
+for link in driver.find_elements_by_css_selector('main a'):
     news_url = link.get_attribute('href')
-    news_urls.append(news_url)
+    if news_url:
+        news_urls.append(news_url)
 
 for news_url in news_urls:
     print('Now scraping:', news_url)
@@ -47,6 +52,9 @@ for news_url in news_urls:
     if not article:
         # Failed to extract article, just continue
         continue
+
+    # Retrieve the final, non-Google URL
+    news_url = driver.current_url
     # Add in the url
     article['url'] = news_url
     # Remove 'uri' as this is a dictionary on its own

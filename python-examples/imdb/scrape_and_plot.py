@@ -6,8 +6,8 @@ url = 'http://www.imdb.com/title/tt0944947/episodes'
 episodes = []
 ratings = []
 
-# Go over seasons 1 to 7
-for season in range(1, 8):
+# Go over seasons 1 to 8
+for season in range(1, 9):
     r = requests.get(url, params={'season': season})
     soup = BeautifulSoup(r.text, 'html.parser')
     listing = soup.find('div', class_='eplist')

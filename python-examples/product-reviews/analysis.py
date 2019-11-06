@@ -1,4 +1,7 @@
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+# Depending on your installation:
+# Or: from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+# Or: from vaderSentiment import SentimentIntensityAnalyzer
 from nltk import tokenize
 import dataset
 import matplotlib.pyplot as plt

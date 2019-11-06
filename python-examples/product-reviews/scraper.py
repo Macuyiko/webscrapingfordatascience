@@ -30,6 +30,8 @@ def parse_reviews(reply):
         if not div:
             continue
         review_id = div.get('id')
+        if not review_id:
+            continue
         review_classes = ' '.join(html_soup.find(class_='review-rating').get('class'))
         rating = re.search(r'a-star-(\d+)', review_classes).group(1)
         title = html_soup.find(class_='review-title').get_text(strip=True)

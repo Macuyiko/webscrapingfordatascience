@@ -10,5 +10,6 @@ for row in df.itertuples():
     G.add_node(row.symbol, type='company')
     G.add_node(row.Name,type='officer')
     G.add_edge(row.symbol, row.Name)
+    print(row.symbol, '->', row.Name)
  
 write_gexf(G, 'graph.gexf')
